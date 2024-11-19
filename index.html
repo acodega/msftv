@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft Edge Version</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Microsoft Edge Latest Version</h1>
+  <pre id="version"></pre>
+
+  <script>
+    fetch('version.json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('version').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        document.getElementById('version').textContent = 'Error fetching version data';
+        console.error('Error:', error);
+      });
+  </script>
+</body>
+</html>
