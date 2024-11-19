@@ -22,4 +22,5 @@ if [[ -z "$appNewVersion" ]]; then
   exit 1
 fi
 
-echo "New version: $appNewVersion"
+# Output the version number in JSON format
+echo "{\"new_version\": \"$appNewVersion\"}"

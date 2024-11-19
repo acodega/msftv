@@ -18,14 +18,14 @@ jobs:
     - name: Run Zsh script
       run: |
             chmod +x checkEdge.zsh
-            ./checkEdge.zsh > output.txt
+            ./checkEdge.zsh > version.json
 
     - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add output.txt
-        git commit -m "Update output.txt with script output"
+        git add version.json
+        git commit -m "Update version.json with script output"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
