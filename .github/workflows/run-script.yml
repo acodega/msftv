@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Run Zsh script
-      run: ./checkEdge.zsh > output.txt
+      run: ./checkEdge.zsh
 
     - name: Commit and push changes
       run: |
