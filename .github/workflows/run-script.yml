@@ -30,14 +30,18 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Move version.json to temporary directory
+    - name: Stash changes
       run: |
-        mv version.json /tmp/version.json
+        git stash --include-untracked
 
     - name: Checkout gh-pages branch
       run: |
         git fetch origin
         git checkout gh-pages
+
+    - name: Apply stash
+      run: |
+        git stash pop || echo "No changes to apply"
 
     - name: Copy version.json from temporary directory
       run: |
