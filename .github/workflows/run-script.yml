@@ -29,20 +29,3 @@ jobs:
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-    - name: Checkout gh-pages branch
-      run: |
-        git fetch origin
-        git checkout gh-pages
-      
-    - name: Copy version.json to gh-pages
-      run: |
-        cp version.json version.json
-      
-    - name: Commit and push changes to gh-pages
-      run: |
-        git add version.json
-        git commit -m "Update version.json with script output"
-        git push origin gh-pages
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
