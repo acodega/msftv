@@ -1,4 +1,5 @@
 #!/bin/zsh --no-rcs
+
 set -euo pipefail
 
 fwLink="2093504"
