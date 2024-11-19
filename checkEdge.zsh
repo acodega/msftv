@@ -1,6 +1,6 @@
 #!/bin/zsh --no-rcs
 set -euo pipefail
-
+# comments
 fwLink="2093504"
 downloadURL="https://go.microsoft.com/fwlink/?linkid=$fwLink"
 
