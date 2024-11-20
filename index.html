@@ -9,24 +9,34 @@
       font-family: Arial, sans-serif;
       margin: 20px;
     }
-    pre {
+    .version-container {
       background: #f4f4f4;
       padding: 10px;
       border: 1px solid #ddd;
-      white-space: pre-wrap; /* Wrap long lines */
-      word-wrap: break-word; /* Break long words */
+      border-radius: 5px;
+      display: inline-block;
+    }
+    .version-label {
+      font-weight: bold;
+    }
+    .version-number {
+      color: #0078d4;
+      font-size: 1.2em;
     }
   </style>
 </head>
 <body>
   <h1>Microsoft Edge Latest Version</h1>
-  <pre id="version"></pre>
+  <div class="version-container">
+    <span class="version-label">New Version: </span>
+    <span class="version-number" id="version"></span>
+  </div>
 
   <script>
     fetch('version.json')
       .then(response => response.json())
       .then(data => {
-        document.getElementById('version').textContent = JSON.stringify(data, null, 2);
+        document.getElementById('version').textContent = data.new_version;
       })
       .catch(error => {
         document.getElementById('version').textContent = 'Error fetching version data';
