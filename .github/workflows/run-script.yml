@@ -1,8 +1,13 @@
 name: Run Zsh Script
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "version.json"
   schedule:
-      - cron: * */2 * * *
+    - cron: "0 */2 * * *"
 
 jobs:
   run-script:
